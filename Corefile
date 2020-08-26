@@ -69,6 +69,6 @@ lab.local:53 {
 # Metrics for all active functions will be sent to the localhost on http://localhost:9153/metrics
 # This will then need to be ported on the container host -p 9153:9153
 # Prometheus can then point to the container host on 9153/metrics.
-# Version: 1.7
+# Version: 1.8
 #
 #####################################################################################
