@@ -68,6 +68,8 @@ lab.local:53 {
 # Forward lookup zones - for networkjunky.com
 # Reverse lookup zones - supporting vcsa (Vsphere appliance, and all internal nodes.)
 # Metrics for all active functions will be sent to the localhost on http://localhost:9153/metrics
+# NOTE: Photon requires iptables update for the forwarded container port - by default photon is pretty restrictive.
+# iptables -I INPUT -s 192.168.101.0/24 -p tcp --dport 9153 -j ACCEPT
 # This will then need to be ported on the container host -p 9153:9153
 # Prometheus can then point to the container host on 9153/metrics.
 # Version: 1.9
