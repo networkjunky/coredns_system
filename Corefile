@@ -1,0 +1,74 @@
+.:53 {
+    forward . 8.8.8.8 9.9.9.9
+    prometheus 0.0.0.0:9153
+    cache 10
+    log
+    errors
+}
+google.com.:53 {
+    forward . 8.8.8.8 9.9.9.9
+    cache 10
+    prometheus 0.0.0.0:9153
+    log
+    errors
+}
+youtube.com.:53 {
+    forward . 8.8.8.8 9.9.9.9
+    cache 10
+    prometheus 0.0.0.0:9153
+    log
+    errors
+}
+office.com.:53 {
+    forward . 8.8.8.8 9.9.9.9
+    cache 10
+    prometheus 0.0.0.0:9153
+    log
+    errors
+}
+microsoft.com.:53 {
+    forward . 8.8.8.8 9.9.9.9
+    cache 10
+    prometheus 0.0.0.0:9153
+    log
+    errors
+}
+networkjunky.com:53 {
+    file /root/db.networkjunky
+    prometheus 0.0.0.0:9153
+    log
+    errors
+}
+lab.local:53 {
+    file /root/db.lab.local
+    prometheus 0.0.0.0:9153
+    log
+    errors
+}
+192.168.101.0/24:53 {
+    file /root/db.192.168.101
+    prometheus 0.0.0.0:9153
+    log
+    errors
+}
+192.168.105/24:53 {
+    file /root/db.192.168.105
+    prometheus 0.0.0.0:9153
+    log
+    errors
+}
+
+################################ Comment and Version ################################
+# This Corefile will check for changes every 10 seconds or you can restart the container for Coredns plugings.
+# For fun, top used zones that are forwarded will be tracked to Prometheus and then into Grafana. (see grafana dashboard). 
+# This coredns Corefile has the following examples:
+# Forwarding to Google destinations (with a cache hit measure to each server)
+# Forwarding to top domains (for tracking specific destinations) with a cache and cache hits
+# Forward lookup zones - for networkjunky.com
+# Reverse lookup zones - supporting vcsa (Vsphere appliance, and all internal nodes.)
+# Metrics for all active functions will be sent to the localhost on http://localhost:9153/metrics
+# This will then need to be ported on the container host -p 9153:9153
+# Prometheus can then point to the container host on 9153/metrics.
+# Version: 1.7
+#
+#####################################################################################
