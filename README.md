@@ -4,4 +4,4 @@ Coredns system inclusive of monitoring, redundancy, and change processes.  The g
  - reverse lookups
  - zone forwarding
  - caching capabilities
- -root lookups (might require libunbound)
+ - root lookups (might require libunbound, further testing with dockerimage)
