@@ -1,0 +1,19 @@
+version: '3.2'
+services:
+  cadvisor:
+    image: gcr.io/google-containers/cadvisor:latest
+    container_name: cadvisor-ns2.networkjunky.com
+    ports:
+    - 8080:8080
+    volumes:
+    - /:/rootfs:ro
+    - /var/run:/var/run:rw
+    - /sys:/sys:ro
+    - /var/lib/docker/:/var/lib/docker:ro
+ codedns:
+     image: coredns/coredns
+    container_name: cadvisor-ns2.networkjunky.com
+    ports:
+    - 53:53/udp
+    volumes:
+    /etc/coredns/:/root/:rw
